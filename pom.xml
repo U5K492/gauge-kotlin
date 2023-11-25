@@ -1,23 +1,26 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>gauge_java_maven</groupId>
-    <artifactId>gauge_java_maven</artifactId>
+    <groupId>gauge_kotlin_maven</groupId>
+    <artifactId>gauge_kotlin_maven</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-        <java.version>21</java.version>
-        <kotlin.version>1.8.20</kotlin.version>
-        <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
+        <java.version>17</java.version>
+        <kotlin.version>1.9.20</kotlin.version>
+        <gauge.java.version>0.10.3</gauge.java.version>
+        <gauge.maven.version>1.4.3</gauge.maven.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.thoughtworks.gauge</groupId>
             <artifactId>gauge-java</artifactId>
-            <version>0.10.0</version>
+            <version>${gauge.java.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -53,7 +56,7 @@
             <plugin>
                 <groupId>com.thoughtworks.gauge.maven</groupId>
                 <artifactId>gauge-maven-plugin</artifactId>
-                <version>1.4.3</version>
+                <version>${gauge.maven.version}</version>
                 <executions>
                     <execution>
                         <phase>test</phase>
@@ -74,7 +77,7 @@
                     <args>
                         <arg>-Xjsr305=strict</arg>
                     </args>
-                    <jvmTarget>11</jvmTarget>
+                    <jvmTarget>${java.version}</jvmTarget>
                 </configuration>
                 <executions>
                     <execution>
